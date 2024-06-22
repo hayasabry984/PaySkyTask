@@ -43,10 +43,6 @@ class NoteDetailFragment : Fragment() {
 
         initMenuProvider()
 
-        /**
-         * It is checked to see if there is an incoming id.
-         * Otherwise, title and text will not be filled.
-         */
         val id = requireArguments().getInt("id")
         viewModel.retrieveNote(id)
 
@@ -59,7 +55,6 @@ class NoteDetailFragment : Fragment() {
             }
         }
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

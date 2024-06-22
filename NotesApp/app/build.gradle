@@ -4,11 +4,10 @@ plugins {
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
     id 'dagger.hilt.android.plugin'
+    id 'kotlin-android'
 }
-
 android {
     compileSdk 34
-
     defaultConfig {
         applicationId "com.example.todoapp"
         minSdk 23
@@ -37,7 +36,6 @@ android {
     }
     namespace 'com.example.notes'
 }
-
 dependencies {
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -57,7 +55,24 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
 
-    // Hilt
+    // Dagger Hilt components
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:okhttp:$retrofit_version"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+    // WorkManager
+    implementation "androidx.work:work-runtime-ktx:$workManager_version"
+
+    // Hilt WorkManager
+    implementation "androidx.hilt:hilt-work:$hilt_workManager_version"
+    kapt "androidx.hilt:hilt-compiler:$hilt_workManager_version"
 }

@@ -12,7 +12,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NoteViewModel @Inject constructor(private val noteRepository: NoteRepository) : ViewModel() {
-
     val notes: Flow<List<Note>> = noteRepository.getNotes()
     val note = MutableStateFlow<Note?>(null)
 
@@ -28,7 +27,6 @@ class NoteViewModel @Inject constructor(private val noteRepository: NoteReposito
             text = noteText
         )
     }
-
     fun addNewNote(noteTitle: String, noteText: String) {
         val newNote = getNewNoteEntry(noteTitle, noteText)
         insertNote(newNote)
